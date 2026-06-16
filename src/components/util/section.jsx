@@ -1,6 +1,6 @@
 function Section({ heading, children }) {
     return (
-        <div className={`${heading} section`}>
+        <div className={"section"}>
             <h1>{heading}</h1>
             {children}
         </div>

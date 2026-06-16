@@ -1,16 +1,7 @@
 import Section from "../util/section.jsx";
 import Field from "../util/field.jsx";
-import { useState } from "react";
 
-function GeneralInfo() {
-    const [generalInfo, setGeneralInfo] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        gitHub: "",
-        linkedIn: ""
-    }); 
+function GeneralInfo({ generalInfo, setGeneralInfo }) {
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -33,10 +24,6 @@ function GeneralInfo() {
                         onChange={handleChange} 
                     /> 
                 </div>
-            </div>
-
-            <div className="general-information-preview">
-                <p>{generalInfo.firstName}</p> 
             </div>
         </Section>
     )
