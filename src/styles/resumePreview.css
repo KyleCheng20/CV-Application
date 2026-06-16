@@ -1,7 +1,10 @@
 .resume-paper {
-    background-color: gray;
     color: white;
-    width: 500px;
     min-height: 700px;
     padding: 1rem;
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0.75in;
+    background: gray;
+    color: black;
 }
