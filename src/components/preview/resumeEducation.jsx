@@ -18,6 +18,7 @@ function ResumeEducation({ education }) {
                             <p>{edu.degree}</p>
                             <p>{edu.location}</p>
                         </div>
+                        
                         <p>{edu.gpa}</p>
                     </div>
                 )
