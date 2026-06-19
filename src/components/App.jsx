@@ -4,6 +4,7 @@ import ResumePreview from './preview/resumePreview'
 import GeneralInfo from './formInputs/generalInfo';
 import Education from './formInputs/education';
 import Experience from './formInputs/experience';
+import Projects from './formInputs/projects'
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -38,6 +39,17 @@ function App() {
       descriptions: "",
       id: crypto.randomUUID(),
     }
+  ]);
+
+  const [projects, setProjects] = useState([
+    {
+      projectName: "",
+      technologies: "",
+      startDate: "",
+      endDate: "",
+      descriptions: "",
+      id: crypto.randomUUID(),
+    }
   ])
 
   return (
@@ -58,10 +70,16 @@ function App() {
         setExperience={setExperience}
       />
 
+      <Projects 
+        projects={projects}
+        setProjects={setProjects}
+      />
+
       <ResumePreview
         generalInfo={generalInfo}
         education={education}
         experience={experience}
+        projects={projects}
       />
     </>
   )

@@ -1,5 +1,4 @@
 function ResumeEducation({ education }) {
-    console.log(education);
     return (
         <section className="education-container">
             <h2>Education</h2>
@@ -18,7 +17,7 @@ function ResumeEducation({ education }) {
                             <p>{edu.degree}</p>
                             <p>{edu.location}</p>
                         </div>
-                        
+
                         <p>{edu.gpa}</p>
                     </div>
                 )

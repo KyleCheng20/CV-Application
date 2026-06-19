@@ -2,7 +2,6 @@ import Section from "../util/section.jsx";
 import Field from "../util/field.jsx";
 
 function Experience({ experience, setExperience }) {
-
     function handleChange(e) {
         const {name, value} = e.target;
 
