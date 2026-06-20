@@ -1,23 +1,44 @@
+import { useState } from "react";
 import Section from "../util/section.jsx";
 import Field from "../util/field.jsx";
 
 function Skills({ skills, setSkills }) {
+    const [newSkillItem, setNewSkillItem] = useState({});
+
     function addNewSkillCategory() {
         const newSkillCategory = {
             id: crypto.randomUUID(),
             skillTitle: "",
-            skillItems: "",
+            skillItems: [],
         };
 
         setSkills(prev => [...prev, newSkillCategory]);
     }
 
-    function handleChange(e) {
-        const {name, value} = e.target;
+    function addNewSkillItem(categoryID) {
+        const newSkill = newSkillItem[categoryID];
+
+        if(!newSkill.trim()) return;
+
+        setSkills(prev => 
+            prev.map(skill => 
+                skill.id === categoryID ? {...skill, skillItems: [...skill.skillItems, newSkill]} : skill
+            )
+        );
+
+        // Clear the input box after use has added the skill
+        setNewSkillItem(prev => ({
+            ...prev,
+            [categoryID]: "",
+        }));
+    }
+
+    function handleTitleChange(e, categoryID) {
+        const value = e.target.value;
 
         setSkills(prev =>
-            prev.map((skill, index) =>
-                index === 0 ? {...skill, [name]: value} : skill
+            prev.map(skill =>
+                skill.id === categoryID ? {...skill, skillTitle: value} : skill
             )
         );
     }
@@ -33,7 +54,7 @@ function Skills({ skills, setSkills }) {
                             name="skillTitle"
                             type="text"
                             value={category.skillTitle}
-                            onChange={handleChange}
+                            onChange={(e) => handleTitleChange(e, category.id)}
                         />
 
                         <Field 
@@ -41,9 +62,11 @@ function Skills({ skills, setSkills }) {
                             id="skill-item"
                             name="skillItems"
                             type="text"
-                            value={category.skillItems}
-                            onChange={handleChange}
+                            value={newSkillItem[category.id] || ""}
+                            onChange={(e) => setNewSkillItem(prev => ({...prev, [category.id]: e.target.value}))}
                         />
+
+                        <button type="button" onClick={() => addNewSkillItem(category.id)}>+</button>
                     </div>
                 )}
 
