@@ -16,9 +16,12 @@ function Skills({ skills, setSkills }) {
     }
 
     function addNewSkillItem(categoryID) {
-        const newSkill = newSkillItem[categoryID];
+        const newSkill = {
+            id: crypto.randomUUID(),
+            name: newSkillItem[categoryID],
+        };
 
-        if(!newSkill.trim()) return;
+        if(!newSkill.name.trim()) return;
 
         setSkills(prev => 
             prev.map(skill => 
@@ -26,11 +29,19 @@ function Skills({ skills, setSkills }) {
             )
         );
 
-        // Clear the input box after use has added the skill
+        // Clear the input box after user has added the skill
         setNewSkillItem(prev => ({
             ...prev,
             [categoryID]: "",
         }));
+    }
+
+    function removeSkillItem(categoryID, skillID) {
+        setSkills(prev => 
+            prev.map(skill => 
+                skill.id === categoryID ? {...skill, skillItems: skill.skillItems.filter(item => item.id!== skillID)} : skill
+            )
+        )
     }
 
     function handleTitleChange(e, categoryID) {
@@ -67,6 +78,15 @@ function Skills({ skills, setSkills }) {
                         />
 
                         <button type="button" onClick={() => addNewSkillItem(category.id)}>+</button>
+
+                        <div className="skill-items">
+                            {category.skillItems.map(skill => (
+                                <div className="skill-card" key={skill.id}>
+                                    <span>{skill.name}</span>
+                                    <button type="button" onClick={() => removeSkillItem(category.id, skill.id)}>x</button>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 )}
 

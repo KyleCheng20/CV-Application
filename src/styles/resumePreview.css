@@ -8,3 +8,19 @@
     background: gray;
     color: black;
 }
+
+.skill-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    margin: 4px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.skill-card button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
