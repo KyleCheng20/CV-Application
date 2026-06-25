@@ -57,31 +57,33 @@ function App() {
 
   return (
     <>
-      <h1>CV Application</h1>
-      <GeneralInfo 
-        generalInfo={generalInfo}
-        setGeneralInfo={setGeneralInfo}
-      />
-
-      <Education 
-        education={education}
-        setEducation={setEducation}
-      />
-
-      <Experience 
-        experience={experience}
-        setExperience={setExperience}
-      />
-
-      <Projects 
-        projects={projects}
-        setProjects={setProjects}
-      />
-
-      <Skills 
-        skills={skills}
-        setSkills={setSkills}
-      />
+      <div className="input-form-container">
+          <h1>CV Application</h1>
+          <GeneralInfo 
+            generalInfo={generalInfo}
+            setGeneralInfo={setGeneralInfo}
+          />
+    
+          <Education 
+            education={education}
+            setEducation={setEducation}
+          />
+    
+          <Experience 
+            experience={experience}
+            setExperience={setExperience}
+          />
+    
+          <Projects 
+            projects={projects}
+            setProjects={setProjects}
+          />
+    
+          <Skills 
+            skills={skills}
+            setSkills={setSkills}
+          />
+      </div>
 
       <ResumePreview
         generalInfo={generalInfo}
