@@ -17,8 +17,10 @@ function ResumeExperience({ experience }) {
                                 <p>{exp.location}</p>
                             </div>
 
-                            <div className="description-container">
-                                <p>{exp.descriptions}</p>
+                            <div className="descriptions-container">
+                                {exp.descriptions.map(desc => (
+                                    <li key={desc.id}>{desc.text}</li>
+                                ))}
                             </div>
                         </div>
                     </div>

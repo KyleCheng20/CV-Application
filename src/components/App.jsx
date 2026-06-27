@@ -38,7 +38,7 @@ function App() {
       location: "",
       startDate: "",
       endDate: "",
-      descriptions: "",
+      descriptions: [],
     }
   ]);
 
