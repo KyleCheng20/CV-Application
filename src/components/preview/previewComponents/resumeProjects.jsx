@@ -14,9 +14,11 @@ function ResumeProjects({ projects }) {
                                 <p>{project.startDate} - {project.endDate}</p>
                             </div>
 
-                            <div className="description-container">
-                                <p>{project.descriptions}</p>
-                            </div>
+                            <ul className="projects-descriptions-container">
+                                {project.descriptions.map(description => (
+                                    <li key={description.id}>{description.text}</li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 )

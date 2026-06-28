@@ -38,7 +38,12 @@ function App() {
       location: "",
       startDate: "",
       endDate: "",
-      descriptions: [],
+      descriptions: [
+        {
+          id: crypto.randomUUID(),
+          text: "",
+        }
+      ],
     }
   ]);
 
@@ -49,7 +54,12 @@ function App() {
       technologies: "",
       startDate: "",
       endDate: "",
-      descriptions: "",
+      descriptions: [
+        {
+          id: crypto.randomUUID(),
+          text: "",
+        }
+      ],
     }
   ]);
 

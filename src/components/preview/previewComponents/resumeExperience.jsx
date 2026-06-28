@@ -17,11 +17,11 @@ function ResumeExperience({ experience }) {
                                 <p>{exp.location}</p>
                             </div>
 
-                            <div className="descriptions-container">
-                                {exp.descriptions.map(desc => (
-                                    <li key={desc.id}>{desc.text}</li>
+                            <ul className="experience-descriptions-container">
+                                {exp.descriptions.map(description => (
+                                    <li key={description.id}>{description.text}</li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 )

@@ -54,8 +54,8 @@ function Experience({ experience, setExperience }) {
     function handleDescriptionChange(experienceID, descriptionID, value) {
         setExperience(prev => 
             prev.map(exp => 
-                exp.id === experienceID ? {...exp, descriptions: exp.descriptions.map(desc => 
-                    desc.id === descriptionID ? {...desc, text: value} : desc
+                exp.id === experienceID ? {...exp, descriptions: exp.descriptions.map(description => 
+                    description.id === descriptionID ? {...description, text: value} : description
                 )} : exp
             )
         );
@@ -64,7 +64,7 @@ function Experience({ experience, setExperience }) {
     function removeDescription(experienceID, descriptionID) {
         setExperience(prev => 
             prev.map(exp => 
-                exp.id === experienceID ? {...exp, descriptions: exp.descriptions.filter(desc => desc.id !== descriptionID)} : exp
+                exp.id === experienceID ? {...exp, descriptions: exp.descriptions.filter(description => description.id !== descriptionID)} : exp
             )
         );
     }
@@ -72,7 +72,7 @@ function Experience({ experience, setExperience }) {
     return (
         <Section heading={"Experience"}>
             {experience.map(exp => (
-                <div className="experience-form">
+                <div key={exp.id} className="experience-form">
                     <div className="experience-form-top">
                         <h3>{exp.company}</h3>
                         <button type="button" onClick={() => removeExperience(exp.id)}>x</button>
