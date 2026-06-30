@@ -69,70 +69,74 @@ function Projects({ projects, setProjects }) {
 
     return (
         <Section heading="Projects">
-            {projects.map(project => (
-                <div key={project.id} className="projects-container">
-                    <div className="projects-container-top">
-                        <h3>{project.projectName}</h3>
-                        <button type="button" onClick={() => removeProject(project.id)}>x</button>
+            <div className="projects-form-container">
+                {projects.map(project => (
+                    <div key={project.id} className="projects-form">
+                        <div className="projects-form-top">
+                            <h3>{project.projectName}</h3>
+                            <button type="button" onClick={() => removeProject(project.id)}>x</button>
+                        </div>
+    
+                        <div className="projects-form-inputs">
+                            <Field 
+                                labelName="Project Name"
+                                id="project-name"
+                                name="projectName"
+                                type="text"
+                                value={project.projectName}
+                                onChange={(e) => handleChange(e, project.id)}
+                            />
+        
+                            <Field 
+                                labelName="Technologies"
+                                id="technologies"
+                                name="technologies"
+                                type="text"
+                                value={project.technologies}
+                                onChange={(e) => handleChange(e, project.id)}
+                            />
+        
+                            <Field 
+                                labelName="Start Date"
+                                id="start-date"
+                                name="startDate"
+                                type="date"
+                                value={project.startDate}
+                                onChange={(e) => handleChange(e, project.id)}
+                            />
+        
+                            <Field 
+                                labelName="End Date"
+                                id="end-date"
+                                name="endDate"
+                                type="date"
+                                value={project.endDate}
+                                onChange={(e) => handleChange(e, project.id)}
+                            />
+                        </div>
+    
+                        <div className="descriptions-container">
+                            <p>Descriptions</p>
+                            {project.descriptions.map(description => (
+                                <div key={description.id}>
+                                    <textarea 
+                                        name="descriptions" 
+                                        id="descriptions" 
+                                        value={description.text}
+                                        onChange={(e) => handleDescriptionChange(project.id, description.id, e.target.value)}
+                                    />
+    
+                                    <button type="button" onClick={() => removeDescription(project.id, description.id)}>x</button>
+                                </div>
+                            ))}
+                        </div>
+    
+                            <button className="add-description-btn" type="button" onClick={() => addDescription(project.id)}>Add Description</button>
                     </div>
+                ))}
+            </div>
 
-                    <Field 
-                        labelName="Project Name"
-                        id="project-name"
-                        name="projectName"
-                        type="text"
-                        value={project.projectName}
-                        onChange={(e) => handleChange(e, project.id)}
-                    />
-
-                    <Field 
-                        labelName="Technologies"
-                        id="technologies"
-                        name="technologies"
-                        type="text"
-                        value={project.technologies}
-                        onChange={(e) => handleChange(e, project.id)}
-                    />
-
-                    <Field 
-                        labelName="Start Date"
-                        id="start-date"
-                        name="startDate"
-                        type="date"
-                        value={project.startDate}
-                        onChange={(e) => handleChange(e, project.id)}
-                    />
-
-                    <Field 
-                        labelName="End Date"
-                        id="end-date"
-                        name="endDate"
-                        type="date"
-                        value={project.endDate}
-                        onChange={(e) => handleChange(e, project.id)}
-                    />
-
-                    <div className="descriptions-container">
-                        <p>Descriptions</p>
-                        {project.descriptions.map(description => (
-                            <div key={description.id}>
-                                <textarea 
-                                    name="descriptions" 
-                                    id="descriptions" 
-                                    value={description.text}
-                                    onChange={(e) => handleDescriptionChange(project.id, description.id, e.target.value)}
-                                />
-
-                                <button type="button" onClick={() => removeDescription(project.id, description.id)}>x</button>
-                            </div>
-                        ))}
-                    </div>
-
-                        <button type="button" onClick={() => addDescription(project.id)}>Add Description</button>
-                </div>
-            ))}
-
-            <button type="button" onClick={addProject}>Add Project +</button>
+            <button className="add-projects-btn" type="button" onClick={addProject}>Add Project +</button>
         </Section>
     )
 }

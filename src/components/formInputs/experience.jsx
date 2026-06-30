@@ -71,78 +71,83 @@ function Experience({ experience, setExperience }) {
 
     return (
         <Section heading={"Experience"}>
-            {experience.map(exp => (
-                <div key={exp.id} className="experience-form">
-                    <div className="experience-form-top">
-                        <h3>{exp.company}</h3>
-                        <button type="button" onClick={() => removeExperience(exp.id)}>x</button>
+            <div className="experience-form-container">
+                {experience.map(exp => (
+                    <div key={exp.id} className="experience-form">
+                        <div className="experience-form-top">
+                            <h3>{exp.company}</h3>
+                            <button type="button" onClick={() => removeExperience(exp.id)}>x</button>
+                        </div>
+
+                        <div className="experience-form-inputs">
+                            <Field 
+                                labelName="Company Name"
+                                id="company-name"
+                                name="company"
+                                type="text"
+                                value={exp.company}
+                                onChange={(e) => handleChange(e, exp.id)}                    
+                            />
+        
+                            <Field 
+                                labelName="Position"
+                                id="position"
+                                name="position"
+                                type="text"
+                                value={exp.position}
+                                onChange={(e) => handleChange(e, exp.id)}                    
+                            />
+        
+                            <Field 
+                                labelName="Location"
+                                id="company-location"
+                                name="location"
+                                type="text"
+                                value={exp.location}
+                                onChange={(e) => handleChange(e, exp.id)}                    
+                            />
+        
+                            <Field 
+                                labelName="Start Date"
+                                id="start-date"
+                                name='startDate'
+                                type="date"
+                                value={exp.startDate}
+                                onChange={(e) => handleChange(e, exp.id)}                    
+                            />
+        
+                            <Field 
+                                labelName="End Date"
+                                id="end-date"
+                                name='endDate'
+                                type="date"
+                                value={exp.endDate}
+                                onChange={(e) => handleChange(e, exp.id)}                    
+                            />
+                        </div>
+    
+                        <div className="descriptions-container">
+                            <p>Descriptions</p>
+                            {exp.descriptions.map(description => (
+                                <div key={description.id}>
+                                    <textarea 
+                                        name="descriptions" 
+                                        id="descriptions" 
+                                        value={description.text}
+                                        onChange={(e) => handleDescriptionChange(exp.id, description.id, e.target.value)}
+                                    />
+    
+                                    <button type="button" onClick={() => removeDescription(exp.id, description.id)}>x</button>
+                                </div>
+                            ))}
+    
+                            <button className="add-description-btn" type="button" onClick={() => addDescription(exp.id)}>Add Description</button>
+                        </div>
                     </div>
-                    <Field 
-                        labelName="Company Name"
-                        id="company-name"
-                        name="company"
-                        type="text"
-                        value={exp.company}
-                        onChange={(e) => handleChange(e, exp.id)}                    
-                    />
+                ))}
+            </div>
 
-                    <Field 
-                        labelName="Position"
-                        id="position"
-                        name="position"
-                        type="text"
-                        value={exp.position}
-                        onChange={(e) => handleChange(e, exp.id)}                    
-                    />
-
-                    <Field 
-                        labelName="Location"
-                        id="company-location"
-                        name="location"
-                        type="text"
-                        value={exp.location}
-                        onChange={(e) => handleChange(e, exp.id)}                    
-                    />
-
-                    <Field 
-                        labelName="Start Date"
-                        id="start-date"
-                        name='startDate'
-                        type="date"
-                        value={exp.startDate}
-                        onChange={(e) => handleChange(e, exp.id)}                    
-                    />
-
-                    <Field 
-                        labelName="End Date"
-                        id="end-date"
-                        name='endDate'
-                        type="date"
-                        value={exp.endDate}
-                        onChange={(e) => handleChange(e, exp.id)}                    
-                    />
-
-                    <div className="descriptions-container">
-                        <p>Descriptions</p>
-                        {exp.descriptions.map(description => (
-                            <div key={description.id}>
-                                <textarea 
-                                    name="descriptions" 
-                                    id="descriptions" 
-                                    value={description.text}
-                                    onChange={(e) => handleDescriptionChange(exp.id, description.id, e.target.value)}
-                                />
-
-                                <button type="button" onClick={() => removeDescription(exp.id, description.id)}>x</button>
-                            </div>
-                        ))}
-
-                        <button type="button" onClick={() => addDescription(exp.id)}>Add Description</button>
-                    </div>
-                </div>
-            ))}
-
-            <button type="button" onClick={addExperience}>Add Experience +</button>
+            <button className="add-experience-btn" type="button" onClick={addExperience}>Add Experience +</button>
         </Section>
     )
 }

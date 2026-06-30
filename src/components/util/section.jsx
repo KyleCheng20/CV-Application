@@ -1,7 +1,9 @@
+import "../../styles/formInputs.css";
+
 function Section({ heading, children }) {
     return (
-        <div className={"section"}>
-            <h1>{heading}</h1>
+        <div className="section">
+            <h2>{heading}</h2>
             {children}
         </div>
     )
