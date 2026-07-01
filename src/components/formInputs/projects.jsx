@@ -92,6 +92,7 @@ function Projects({ projects, setProjects }) {
                                 id="technologies"
                                 name="technologies"
                                 type="text"
+                                placeholder="HTML, CSS, Javascript"
                                 value={project.technologies}
                                 onChange={(e) => handleChange(e, project.id)}
                             />

@@ -5,7 +5,7 @@ function ResumeEducation({ education }) {
 
             {education.map(edu => {
                 return (
-                    <div key={edu.id}>
+                    <div className="education" key={edu.id}>
                         <div className="school-container">
                             <p>{edu.school}</p>
                             <div className="date-container">
@@ -18,7 +18,7 @@ function ResumeEducation({ education }) {
                             <p>{edu.location}</p>
                         </div>
 
-                        <p>{edu.gpa}</p>
+                        <p>GPA: {edu.gpa}</p>
                     </div>
                 )
             })}

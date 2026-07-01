@@ -12,18 +12,73 @@
         0 8px 24px rgba(0,0,0,0.12);
 }
 
-.skill-card {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    margin: 4px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
+section h2 {
+    border-bottom: 1px solid black;
+    font-size: 1.15rem;
 }
 
-.skill-card button {
-    border: none;
-    background: none;
-    cursor: pointer;
+.school-container,
+.degree-container,
+.company-container,
+.position-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.school-container > p,
+.company-container > p,
+.project-name,
+.skill-title {
+    font-weight: 600;
+}
+
+.experience-descriptions-container,
+.projects-descriptions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 0.2rem;
+    padding-left: 1rem;
+}
+
+.experience-descriptions-container li,
+.projects-descriptions-container li {
+    line-height: 1rem;
+}
+
+
+/* -----General Information----- */
+.general-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume-name {
+    letter-spacing: 1px;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.contacts-container,
+.social-links-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* -----Projects----- */
+.project-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-left {
+    display: flex;
+    gap: 0.3rem;
+}
+
+/* -----Technical Skills----- */
+.skill {
+    display: flex;
+    gap: 0.3rem;
 }

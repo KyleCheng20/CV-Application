@@ -5,21 +5,23 @@ function ResumeProjects({ projects }) {
 
             {projects.map(project => {
                 return (
-                    <div key={project.id}>
+                    <div className="project" key={project.id}>
                         <div className="project-container">
-                            <p>{project.projectName}</p>
-                            <span>|</span>
-                            <p>{project.technologies}</p>
+                            <div className="project-left">
+                                <p className="project-name">{project.projectName}</p>
+                                <span>|</span>
+                                <p>{project.technologies}</p>
+                            </div>
                             <div className="date-container">
                                 <p>{project.startDate} - {project.endDate}</p>
                             </div>
-
-                            <ul className="projects-descriptions-container">
-                                {project.descriptions.map(description => (
-                                    <li key={description.id}>{description.text}</li>
-                                ))}
-                            </ul>
                         </div>
+
+                        <ul className="projects-descriptions-container">
+                            {project.descriptions.map(description => (
+                                <li key={description.id}>{description.text}</li>
+                            ))}
+                        </ul>
                     </div>
                 )
             })}

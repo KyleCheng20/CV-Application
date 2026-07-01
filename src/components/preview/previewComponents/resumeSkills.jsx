@@ -7,15 +7,13 @@ function ResumeSkills({ skills }) {
 
             {skills.map(category => {
                 return (
-                    <div key={category.id}>
-                        <div className="skill-title-container">
-                            <p className="skill-title">{category.skillTitle}: </p>
+                    <div className="skill" key={category.id}>
+                        <p className="skill-title">{category.skillTitle}: </p>
 
-                            <div className="resume-skill-items">
-                                {category.skillItems.map(item => (
-                                    <span key={item.id}>{item.name}</span>
-                                ))}
-                            </div>
+                        <div className="resume-skill-items">
+                            {category.skillItems.map(item => (
+                                <span key={item.id}>{item.name}</span>
+                            ))}
                         </div>
                     </div>
                 )

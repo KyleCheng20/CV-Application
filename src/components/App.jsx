@@ -16,7 +16,7 @@ function App() {
     phoneNumber: "(###)-###-####",
     email: "example@gmail.com",
     location: "City, Region",
-    gitHub: "https://github.com/",
+    github: "https://github.com/",
     linkedIn: "https://www.linkedin.com/"
   });
 
